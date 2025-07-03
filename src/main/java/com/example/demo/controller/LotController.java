@@ -2,10 +2,10 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.LotDTO;
 import jooqdata.tables.Lot;
-import jooqdata.tables.Customer; // Добавлен импорт
+import jooqdata.tables.Customer;
 import jooqdata.tables.records.LotRecord;
 import org.jooq.DSLContext;
-import org.jooq.exception.DataAccessException; // Добавлен импорт
+import org.jooq.exception.DataAccessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,7 +48,6 @@ public class LotController {
     @PostMapping
     public ResponseEntity<LotDTO> createLot(@RequestBody LotDTO lotDTO) {
         try {
-            // Проверяем, существует ли customer_code
             boolean exists = dsl.fetchExists(
                     dsl.selectFrom(Customer.CUSTOMER)
                             .where(Customer.CUSTOMER.CUSTOMER_CODE.eq(lotDTO.getCustomerCode()))
@@ -75,7 +74,6 @@ public class LotController {
     @PutMapping("/{lotId}")
     public ResponseEntity<LotDTO> updateLot(@PathVariable Integer lotId, @RequestBody LotDTO lotDTO) {
         try {
-            // Проверяем, существует ли customer_code
             boolean exists = dsl.fetchExists(
                     dsl.selectFrom(Customer.CUSTOMER)
                             .where(Customer.CUSTOMER.CUSTOMER_CODE.eq(lotDTO.getCustomerCode()))

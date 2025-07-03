@@ -29,7 +29,6 @@ public class CustomerDTO {
         this.isPerson = isPerson;
     }
 
-    // Геттеры и сеттеры
     public Integer getCustomerId() {
         return customerId;
     }

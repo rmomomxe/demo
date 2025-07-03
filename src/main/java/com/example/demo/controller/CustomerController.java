@@ -69,7 +69,6 @@ public class CustomerController {
     @PutMapping("/{customerId}")
     public ResponseEntity<CustomerDTO> updateCustomer(@PathVariable Integer customerId, @RequestBody CustomerDTO customerDTO) {
         try {
-            // Проверяем, существует ли customer_code_main
             if (customerDTO.getCustomerCodeMain() != null) {
                 boolean exists = dsl.fetchExists(
                         dsl.selectFrom(Customer.CUSTOMER)

@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.3.1' // как в методичке
+    id 'org.springframework.boot' version '3.3.1'
     id 'io.spring.dependency-management' version '1.1.5'
     id 'nu.studer.jooq' version '8.1'
 }
@@ -10,7 +10,7 @@ version = '0.0.1-SNAPSHOT'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21) // методичка требует Java 17
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -20,7 +20,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-jooq'
-    jooqGenerator "org.postgresql:postgresql" // важно для генерации Jooq-классов
+    jooqGenerator "org.postgresql:postgresql"
     implementation 'org.springframework.boot:spring-boot-starter-web'
     runtimeOnly 'org.postgresql:postgresql'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -28,14 +28,14 @@ dependencies {
 }
 
 jooq {
-    version = "3.17.18" // фиксированная версия Jooq
+    version = "3.17.18"
     configurations {
         main {
             generationTool {
                 logging = 'WARN'
                 jdbc {
                     driver = 'org.postgresql.Driver'
-                    url = "jdbc:postgresql://localhost:5432/postgres" // настрой под свою БД
+                    url = "jdbc:postgresql://localhost:5432/postgres"
                     user = "postgres"
                     password = "12345"
                 }
@@ -47,7 +47,7 @@ jooq {
                         excludes = '^(Fly|XFly).*'
                         schemata {
                             schema {
-                                inputSchema = "purchase" // укажи своё имя схемы, если не edu
+                                inputSchema = "purchase"
                             }
                         }
                     }

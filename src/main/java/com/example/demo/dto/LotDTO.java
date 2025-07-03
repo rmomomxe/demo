@@ -25,7 +25,6 @@ public class LotDTO {
         this.dateDelivery = dateDelivery;
     }
 
-    // Геттеры и сеттеры
     public Integer getLotId() {
         return lotId;
     }
